@@ -1,8 +1,6 @@
-package com.nnamanx.calculatorusingtesting;
+package com.nnamanx.calculatorusingtesting.service;
 
-import com.nnamanx.calculatorusingtesting.service.CalculatorService;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,8 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class CalculatorServiceTesting {
 
-    @InjectMocks
-    private CalculatorService calculatorService;
+    private final CalculatorService calculatorService;
+
+    public CalculatorServiceTesting(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
 
 
     //    ADDITION
@@ -96,12 +97,12 @@ public class CalculatorServiceTesting {
     //  CALCULATE PERCENTAGE
 
     @Test
-    public void testCalculatePercentage(){
-        
+    public void testCalculatePercentage() {
+
         Integer result = calculatorService.calculatePercentage(20, 50);
 
         assertEquals(10, result);
     }
-    
+
 
 }
