@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("testing/")
+@RequestMapping("/testing")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -17,9 +17,9 @@ public class UserController {
     @GetMapping("/{username}")
     public ResponseEntity<MyUser> getUserByUsername(@PathVariable String username) {
         
-        MyUser user = userService.getUserByUsername(username);
-        return ResponseEntity.ok(user);
+        return userService.getUserByUsername(username);
     }
+
 
     @PostMapping
     public ResponseEntity<MyUser> createUser(@RequestBody MyUser user) {

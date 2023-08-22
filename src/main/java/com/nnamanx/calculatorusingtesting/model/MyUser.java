@@ -21,7 +21,7 @@ public class MyUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String name;
+    String username;
     String email;
     boolean isActive;
 }
