@@ -41,7 +41,7 @@ public class CalculatorService {
     public <T> Double divide(T x, T y) {
 
         if (x instanceof Integer && y instanceof Integer) {
-            return  Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
+            return Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
         } else if (x instanceof Double && y instanceof Double) {
             return (Double) Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
         } else {
@@ -54,12 +54,10 @@ public class CalculatorService {
 
         if (number instanceof Integer && percent instanceof Integer) {
             return (T) Integer.valueOf(((Integer) number).intValue() * (((Integer) percent).intValue()) / 100);
-        } else if (number instanceof Double && percent instanceof Double) {
-            return (T) Double.valueOf(((Double) number).doubleValue() * (((Double) percent).doubleValue()) / 100);
         } else {
             throw new IllegalArgumentException("Unsupported data types for calculating percentage");
         }
     }
 
-    
+
 }

@@ -95,5 +95,14 @@ public class CalculatorServiceTesting {
 
     //  CALCULATE PERCENTAGE
 
+    @Test
+    public void testCalculatePercentageNo0(){
+
+        Integer result = calculatorService.calculatePercentage(20, 50);
+
+        assertEquals(10, result);
+    }
+    
+
 
 }
