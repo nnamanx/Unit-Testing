@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: testing
+  profiles:
+    include:
+      - db
