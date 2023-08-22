@@ -49,4 +49,15 @@ public class CalculatorService {
         }
     }
 
+
+    public <T> T calculatePercentage(T number, T percent) {
+
+        if (number instanceof Integer && percent instanceof Integer) {
+            return (T) Integer.valueOf(((Integer) number).intValue() * (((Integer) percent).intValue()) / 100);
+        } else if (number instanceof Double && percent instanceof Double) {
+            return (T) Double.valueOf(((Double) number).doubleValue() * (((Double) percent).doubleValue()) / 100);
+        } else {
+            throw new IllegalArgumentException("Unsupported data types for calculating percentage");
+        }
+    }
 }
