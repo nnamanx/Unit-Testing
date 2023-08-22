@@ -38,12 +38,12 @@ public class CalculatorService {
         }
     }
 
-    public <T> T divide(T x, T y) {
+    public <T> Double divide(T x, T y) {
 
         if (x instanceof Integer && y instanceof Integer) {
-            return (T) Integer.valueOf(((Integer) x).intValue() / ((Integer) y).intValue());
+            return  Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
         } else if (x instanceof Double && y instanceof Double) {
-            return (T) Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
+            return (Double) Double.valueOf(((Double) x).doubleValue() / ((Double) y).doubleValue());
         } else {
             throw new IllegalArgumentException("Unsupported data types for division");
         }

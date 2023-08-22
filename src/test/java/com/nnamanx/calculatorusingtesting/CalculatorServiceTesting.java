@@ -69,12 +69,30 @@ public class CalculatorServiceTesting {
 
     @Test
     public void testMultiplicationNo1() {
+
         Double result = calculatorService.multiple(2.5, 1.5);
 
         assertEquals(3.75, result);
     }
 
     //  DIVISION
+
+    @Test
+    public void testDivisionNo0() {
+
+        Double result = calculatorService.divide(5, 2);
+
+        assertEquals(2.5, result);
+    }
+
+    @Test
+    public void testDivisionNo1() {
+
+        Double result = calculatorService.divide(5.5, 1.1);
+
+        assertEquals(5, result);
+    }
+
     //  CALCULATE PERCENTAGE
 
 
