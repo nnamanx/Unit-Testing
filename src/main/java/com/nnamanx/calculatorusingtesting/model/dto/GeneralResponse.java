@@ -10,20 +10,24 @@ import java.time.LocalDateTime;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class GeneralResponse<T> {
+
     String message;
     HttpStatus status;
     LocalDateTime timeStamp;
     T data;
 
     public static <T> GeneralResponse<T> of(T data, HttpStatus status) {
+
         return buildGeneralResponse(data, status, status.name());
     }
 
     public static <T> GeneralResponse<T> of(T data, String message) {
+
         return buildGeneralResponse(data, HttpStatus.OK, message);
     }
 
     private static <T> GeneralResponse<T> buildGeneralResponse(T data, HttpStatus status, String message) {
+        
         return GeneralResponse.<T>builder()
                 .data(data)
                 .status(status)

@@ -3,9 +3,9 @@ package com.nnamanx.calculatorusingtesting.service;
 import com.nnamanx.calculatorusingtesting.model.MyUser;
 import com.nnamanx.calculatorusingtesting.repository.UserRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
@@ -13,12 +13,14 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.util.AssertionErrors.*;
 
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 public class UserServiceTesting {
 
-    private final UserService userService;
-    private final UserRepository userRepository;
+    @Autowired
+    private UserService userService;
+    @InjectMocks
+    private UserRepository userRepository;
 
+    // Missing constructor implementation
     public UserServiceTesting(UserService userService, UserRepository userRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
@@ -45,6 +47,7 @@ public class UserServiceTesting {
 
     @Test
     public void testSaveUser() {
+
         MyUser user = new MyUser();
         user.setUsername("Laman");
 
@@ -55,6 +58,4 @@ public class UserServiceTesting {
         assertTrue("The message2", createdUser.isActive());
 
     }
-
-
 }
